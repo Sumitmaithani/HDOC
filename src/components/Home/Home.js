@@ -39,7 +39,11 @@ const Home = ({ navigation, route }) => {
         <Image source={logo} style={styles.logo} />
         <Image source={logo} style={styles.logo} />
       </View>
-      <ScrollView onScroll={changeColor} bounces={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        onScroll={changeColor}
+        bounces={false}
+      >
         <Day />
       </ScrollView>
     </View>
