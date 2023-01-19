@@ -10,16 +10,28 @@ import {
   ScrollView
 } from "react-native";
 import { Shadow } from "react-native-shadow-2";
+import { feed } from "../../common/data/feed";
 import Artical from "./Artical";
 
 const Feed = ({ navigation, route }) => {
+  const onPress = () => {
+    navigation.navigate("Article");
+  };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Feed</Text>
-      </View>
       <View style={styles.container}>
-        <Artical />
+        {feed.map((artical) => {
+          return (
+            <Artical
+              key={artical.id}
+              image={artical.image}
+              title={artical.title}
+              navigation={navigation}
+              route={route}
+              onPress={onPress}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );
@@ -31,17 +43,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 28
-  },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 35,
-    alignItems: "center",
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#808080",
-    paddingBottom: 21
+    marginTop: 10
   },
   headerText: {
     fontFamily: "ConcertOne",
@@ -49,7 +51,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     lineHeight: 22,
     color: "#808080",
-    textAlign: "center",
-    marginTop: 15
+    textAlign: "center"
   }
 });

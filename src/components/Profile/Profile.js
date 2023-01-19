@@ -25,10 +25,12 @@ import Statistics from "./Statistics";
 const Profile = ({ navigation, route }) => {
   return (
     <ScrollView>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Profile</Text>
-        <Image style={styles.headerLogo} source={settings} />
-      </View>
+      <Shadow>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Profile</Text>
+          <Image style={styles.headerLogo} source={settings} />
+        </View>
+      </Shadow>
       <View style={styles.userDetails}>
         <View style={styles.userContainer}>
           <View style={styles.userInfo}>
@@ -47,12 +49,12 @@ const Profile = ({ navigation, route }) => {
             0 Followers
           </Text>
         </View>
-        <Shadow>
-          <TouchableOpacity style={styles.button}>
-            <Image style={styles.buttonLogo} source={adduser} />
-            <Text style={styles.buttonText}>ADD FRIENDS</Text>
-          </TouchableOpacity>
-        </Shadow>
+        {/* <Shadow> */}
+        <TouchableOpacity style={styles.button}>
+          <Image style={styles.buttonLogo} source={adduser} />
+          <Text style={styles.buttonText}>ADD FRIENDS</Text>
+        </TouchableOpacity>
+        {/* </Shadow> */}
       </View>
       <View style={styles.statisticsContainer}>
         <Text style={styles.heading}>Statistics</Text>
@@ -105,7 +107,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 0.5,
     borderBottomColor: "#808080",
-    paddingBottom: 21
+    paddingBottom: 21,
+    width: Dimensions.get("window").width,
+    backgroundColor: "#ffffff"
   },
   headerText: {
     fontFamily: "ConcertOne",
@@ -185,8 +189,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
-    borderWidth: 1,
-    borderColor: "#808080"
+    borderWidth: 2,
+    borderColor: "#C0C0C0"
   },
   buttonText: {
     fontFamily: "ConcertOne",

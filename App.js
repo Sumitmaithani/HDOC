@@ -20,6 +20,10 @@ import Auth from "./src/screens/Auth";
 import Home from "./src/screens/Home";
 import Profile from "./src/screens/Profile";
 import Feed from "./src/screens/Feed";
+import Room from "./src/screens/Room";
+import Quiz from "./src/screens/Quiz";
+import Result from "./src/screens/Result";
+import Article from "./src/screens/Article";
 
 import home from "./assets/images/Common/BottomNav/home.png";
 import profile from "./assets/images/Common/BottomNav/profile.png";
@@ -122,7 +126,20 @@ export default function App() {
         />
         <Tab.Screen
           options={{
-            headerShown: false,
+            title: "Feed",
+            headerStyle: {
+              backgroundColor: "#ffffff",
+              borderBottomWidth: 0.5,
+              borderBottomColor: "#808080"
+            },
+            headerTintColor: "#808080",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: 28
+            },
+            headerTitleAlign: "center",
             tabBarShowLabel: false,
             tabBarStyle: { height: 80 }
           }}
@@ -149,6 +166,26 @@ export default function App() {
         <Stack.Screen
           name="MainTab"
           component={MainTab}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Room"
+          component={Room}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={Quiz}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Result"
+          component={Result}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Article"
+          component={Article}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

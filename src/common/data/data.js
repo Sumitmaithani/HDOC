@@ -28,14 +28,71 @@ export const data = [
         image: img1,
         color: "#875DAF",
         left: 0,
-        right: 0
+        right: 0,
+        room: {
+          day: "Day 1 : Introduction ",
+          theory: {},
+          question: {},
+          quiz: [
+            {
+              no: 1,
+              color: "#E2DB06",
+              question:
+                " Q 1 - Which of the below given sorting techniques has highest best-case runtime complexity",
+              optionA: "quick sort",
+              optionB: "selection sort",
+              optionC: "insertion sort",
+              optionD: "bubble sort",
+              answer: "a"
+            },
+            {
+              no: 2,
+              color: "#B697FF",
+              question:
+                " Q 2 - Which of the below given sorting techniques has highest best-case runtime complexity",
+              optionA: "quick sort2",
+              optionB: "selection sort2",
+              optionC: "insertion sort2",
+              optionD: "bubble sort2",
+              answer: "c"
+            },
+            {
+              no: 3,
+              color: "#E2DB06",
+              question:
+                " Q 3 - Which of the below given sorting techniques has highest best-case runtime complexity",
+              optionA: "quick sort",
+              optionB: "selection sort",
+              optionC: "insertion sort",
+              optionD: "bubble sort",
+              answer: "b"
+            },
+            {
+              no: 4,
+              color: "#B697FF",
+              question:
+                " Q 4 - Which of the below given sorting techniques has highest best-case runtime complexity",
+              optionA: "quick sort2",
+              optionB: "selection sort2",
+              optionC: "insertion sort2",
+              optionD: "bubble sort2",
+              answer: "d"
+            }
+          ]
+        }
       },
       {
         key: 2,
         image: img2,
         color: "#875DAF",
         left: 0,
-        right: 100
+        right: 100,
+        room: {
+          day: "Day 2",
+          theory: {},
+          question: {},
+          quiz: {}
+        }
       },
       {
         key: 3,

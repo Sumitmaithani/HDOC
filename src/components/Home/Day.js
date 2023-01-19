@@ -11,7 +11,7 @@ import Lottie from "lottie-react-native";
 
 import { data } from "../../common/data/data";
 
-const Day = () => {
+const Day = ({ navigation, route }) => {
   return (
     <>
       {data.map((item) => {
@@ -37,8 +37,16 @@ const Day = () => {
                       marginRight: item.right
                     }}
                   >
-                    <TouchableOpacity style={styles.circle1}>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate("Room", { data: item.room })
+                      }
+                      style={styles.circle1}
+                    >
                       <TouchableOpacity
+                        onPress={() =>
+                          navigation.navigate("Room", { data: item.room })
+                        }
                         style={{
                           ...styles.circle2,
                           backgroundColor: item.color
@@ -112,7 +120,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 15
+    marginVertical: 15,
+    zIndex: 1
   },
   circle1: {
     width: 90,
@@ -124,7 +133,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     flexDirection: "column",
-    alignContent: "center"
+    alignContent: "center",
+    zIndex: 1
   },
   circle2: {
     width: 80,
@@ -135,11 +145,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     flexDirection: "column",
-    alignContent: "center"
+    alignContent: "center",
+    zIndex: 1
   },
   face: {
     width: 65,
-    height: 65
+    height: 65,
+    zIndex: 1
   },
   animation: {
     position: "absolute",

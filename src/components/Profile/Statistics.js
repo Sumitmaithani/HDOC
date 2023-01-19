@@ -5,8 +5,8 @@ import { Shadow } from "react-native-shadow-2";
 
 const Statistics = ({ img, text1, text2 }) => {
   return (
-    <Shadow style={{ marginRight: 10, marginLeftt: 10 }}>
-      <View style={styles.container}>
+    // <Shadow style={{ marginRight: 10, marginLeftt: 10 }}>
+      <View style={{...styles.container, marginRight: 10, marginLeftt: 10 }}>
         <View>
           <Image source={img} style={styles.containerImg} />
         </View>
@@ -15,7 +15,7 @@ const Statistics = ({ img, text1, text2 }) => {
           <Text style={styles.containerText2}>{text2}</Text>
         </View>
       </View>
-    </Shadow>
+    // </Shadow>
   );
 };
 
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: Dimensions.get("window").width / 2 - 25,
     justifyContent: "center",
-    borderWidth: 1,
-    borderColor: "#808080",
+    borderWidth: 3,
+    borderColor: "#C0C0C0",
     borderRadius: 20,
     height: 70
     // margin: 10

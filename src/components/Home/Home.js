@@ -18,7 +18,7 @@ const Home = ({ navigation, route }) => {
 
   const changeColor = (event) => {
     const scrollY = event.nativeEvent.contentOffset.y;
-    console.log(scrollY);
+    //console.log(scrollY);
     if (scrollY <= 1423) {
       setBackgroundColor("#F9851C");
     } else if (scrollY >= 1423) {
@@ -43,8 +43,11 @@ const Home = ({ navigation, route }) => {
         showsVerticalScrollIndicator={false}
         onScroll={changeColor}
         bounces={false}
+        alwaysBounceHorizontal={false}
+        alwaysBounceVertical={false}
+        vertical={true}
       >
-        <Day />
+        <Day navigation={navigation} route={route} />
       </ScrollView>
     </View>
   );

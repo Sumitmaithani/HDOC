@@ -1,22 +1,14 @@
 import React from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-import { Shadow } from "react-native-shadow-2";
-
-import article1 from "../../../assets/images/Feed/fanng.png";
-
-const Artical = () => {
+const Artical = ({ navigation, route, image, title,onPress }) => {
   return (
-    <Shadow>
-      <View style={styles.container}>
-        <Image source={article1} style={styles.img} />
-        <View style={styles.headerContainer}>
-          <Text style={styles.header}>
-            How To Get Into FAANG Companies As A Fresher
-          </Text>
-        </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <Image source={image} style={styles.img} />
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>{title}</Text>
       </View>
-    </Shadow>
+    </TouchableOpacity>
   );
 };
 
@@ -31,7 +23,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: "center",
     alignContent: "center",
-    textAlign: "center"
+    textAlign: "center",
+    marginVertical: 14
   },
   img: {
     width: 338,
@@ -49,7 +42,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 20,
     color: "#000000CC"
-    //marginVertical: 18,
-    //marginHorizontal: 9
   }
 });
