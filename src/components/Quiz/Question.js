@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontSize: 20,
     //lineHeight: 16,
-    color: "#3A3C3C"
+    color: "#fff"
   },
   btnContainer: {
     paddingVertical: 8,

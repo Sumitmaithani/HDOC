@@ -14,9 +14,7 @@ import { feed } from "../../common/data/feed";
 import Artical from "./Artical";
 
 const Feed = ({ navigation, route }) => {
-  const onPress = () => {
-    navigation.navigate("Article");
-  };
+ 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
@@ -28,7 +26,9 @@ const Feed = ({ navigation, route }) => {
               title={artical.title}
               navigation={navigation}
               route={route}
-              onPress={onPress}
+              onPress={() => {
+                navigation.navigate("Article", { data: artical.data });
+              }}
             />
           );
         })}
