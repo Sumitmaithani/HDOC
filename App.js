@@ -24,6 +24,8 @@ import Room from "./src/screens/Room";
 import Quiz from "./src/screens/Quiz";
 import Result from "./src/screens/Result";
 import Article from "./src/screens/Article";
+import Theory from "./src/screens/Theory";
+import Question from "./src/screens/Question";
 
 import home from "./assets/images/Common/BottomNav/home.png";
 import profile from "./assets/images/Common/BottomNav/profile.png";
@@ -186,6 +188,16 @@ export default function App() {
         <Stack.Screen
           name="Article"
           component={Article}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Theory"
+          component={Theory}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Question"
+          component={Question}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -12,7 +12,6 @@ import {
 import article from "../../../assets/images/Feed/article1.png";
 
 const Art = ({ navigation, route, data }) => {
-  console.log(data);
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <StatusBar

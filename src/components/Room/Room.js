@@ -35,11 +35,27 @@ const Room = ({ navigation, route }) => {
       <View>
         <Text style={styles.day}>{data?.day}</Text>
         <View style={styles.theoryQuesContainer}>
-          <TouchableOpacity style={styles.theoryContainer}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Theory", {
+                data: data.theory,
+                name: data.name
+              })
+            }
+            style={styles.theoryContainer}
+          >
             <Image style={styles.theoryImg} source={theory} />
             <Text style={styles.theory}>Theory</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.questionContainer}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Question", {
+                data: data.question,
+                name: data.name
+              })
+            }
+            style={styles.questionContainer}
+          >
             <Image style={styles.questionImg} source={question} />
             <Text style={styles.question}>Questions</Text>
           </TouchableOpacity>
