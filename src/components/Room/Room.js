@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Image,
   Text,
@@ -9,6 +9,7 @@ import {
   StatusBar,
   TouchableOpacity
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import house from "../../../assets/images/Room/house.jpg";
 import theory from "../../../assets/images/Room/theory.png";
@@ -19,7 +20,19 @@ const Room = ({ navigation, route }) => {
   const [data, setData] = useState(
     route.params?.data ? route.params?.data : null
   );
-  console.log(data);
+
+  const [name, setName] = useState(null);
+
+  useEffect(() => {
+    const fetchImg = async () => {
+      let userData = await AsyncStorage.getItem("user");
+      let UserImage = JSON.parse(userData);
+      setName(UserImage?.given_name);
+    };
+    fetchImg();
+  }, []);
+
+  //console.log(data);
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <StatusBar
@@ -29,7 +42,7 @@ const Room = ({ navigation, route }) => {
       />
       <View style={styles.heyConatiner}>
         <Text style={styles.hey}>Hey, </Text>
-        <Text style={styles.name}>Sumit</Text>
+        <Text style={styles.name}>{name}</Text>
       </View>
       <Image style={styles.house} source={house} />
       <View>
@@ -79,7 +92,7 @@ export default Room;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 17,
-    paddingTop: 51
+    paddingTop: 15
   },
   heyConatiner: {
     display: "flex",

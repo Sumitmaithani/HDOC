@@ -28,8 +28,8 @@ const Question = ({ navigation, route }) => {
         barStyle="dark-content"
       />
       <View style={styles.heyConatiner}>
-        <Text style={styles.hey}>Important </Text>
-        <Text style={styles.name}>Questions Of {name}</Text>
+        <Text style={styles.hey}>Important Questions</Text>
+        <Text style={styles.name}>Of {name}</Text>
       </View>
       <View style={styles.heyConatiner}></View>
       <View>
@@ -60,11 +60,11 @@ export default Question;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 17,
-    paddingTop: 51
+    paddingTop: 11
   },
   heyConatiner: {
     display: "flex",
-    flexDirection: "row",
+    //flexDirection: "row",
     paddingRight: 17
     //alignItems: "center",
     //alignContent: "center",

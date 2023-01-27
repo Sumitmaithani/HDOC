@@ -14,6 +14,7 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Tour from "./src/screens/Tour";
 import Auth from "./src/screens/Auth";
@@ -26,6 +27,7 @@ import Result from "./src/screens/Result";
 import Article from "./src/screens/Article";
 import Theory from "./src/screens/Theory";
 import Question from "./src/screens/Question";
+import Settings from "./src/screens/Settings";
 
 import home from "./assets/images/Common/BottomNav/home.png";
 import profile from "./assets/images/Common/BottomNav/profile.png";
@@ -37,6 +39,7 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   const [appIsReady, setAppIsReady] = useState(false);
+  const [initialRouteName, setInitialRouteName] = useState("Tour");
 
   const [fontsLoaded] = useFonts({
     ConcertOne: require("./assets/fonts/ConcertOne-Regular.ttf"),
@@ -56,6 +59,19 @@ export default function App() {
         setAppIsReady(true);
       }
     }
+
+    const fetchData = async () => {
+      let userData = await AsyncStorage.getItem("user");
+      let user = JSON.parse(userData);
+      console.log("user data ", user);
+      // if (user != null || user != "") {
+      //   setInitialRouteName("MainTab");
+      // }
+      if (user?.length > 0) {
+        setInitialRouteName("MainTab");
+      }
+    };
+    fetchData();
 
     prepare();
   }, []);
@@ -154,7 +170,7 @@ export default function App() {
 
   return (
     <NavigationContainer onReady={onLayoutRootView}>
-      <Stack.Navigator initialRouteName="Tour">
+      <Stack.Navigator initialRouteName={initialRouteName}>
         <Stack.Screen
           name="Tour"
           component={Tour}
@@ -198,6 +214,11 @@ export default function App() {
         <Stack.Screen
           name="Question"
           component={Question}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

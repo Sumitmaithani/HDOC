@@ -57,7 +57,7 @@ export default Theory;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 17,
-    paddingTop: 51
+    paddingTop: 11
   },
   heyConatiner: {
     display: "flex",

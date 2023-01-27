@@ -2,9 +2,12 @@
   "expo": {
     "name": "HDOC",
     "slug": "HDOC",
+    "plugins": [
+      "@react-native-google-signin/google-signin"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -21,13 +24,20 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.hdoc.hdoc",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.jpg",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e48dd44f-5e49-4c87-aef9-169c9f70cf54"
+      }
     }
   }
 }

@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   },
   headerQuestionContainer: {
     paddingHorizontal: 17,
-    paddingTop: 51,
+    paddingTop: 11,
     width: "100%"
   },
   headerContainer: {

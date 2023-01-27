@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Image,
   Text,
@@ -8,10 +8,70 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/providers/google";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { googleClientId, googleAndroidId } from "@env";
+
 import auth from "../../../assets/images/Auth/auth.png";
 import google from "../../../assets/images/Auth/google.png";
 
+WebBrowser.maybeCompleteAuthSession();
+
 const Auth = ({ navigation, route }) => {
+  const [accessToken, setAccessToken] = useState(null);
+  const [user, setUser] = useState(null);
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    clientId: googleClientId,
+    androidClientId: googleAndroidId
+  });
+
+  useEffect(() => {
+    if (response?.type === "success") {
+      setAccessToken(response.authentication.accessToken);
+      accessToken && fetchUserInfo();
+    }
+  }, [response, accessToken]);
+
+  async function fetchUserInfo() {
+    let response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
+      headers: { Authorization: `Bearer ${accessToken}` }
+    });
+    const useInfo = await response.json();
+
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    var month = new Date().getMonth();
+    var year = new Date().getFullYear();
+
+    const dateData = {
+      month: monthNames[month],
+      year: year
+    };
+
+    AsyncStorage.setItem("user", JSON.stringify(useInfo));
+    AsyncStorage.setItem("date", JSON.stringify(dateData));
+    setUser(useInfo);
+    console.log(useInfo);
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "MainTab" }]
+    });
+  }
+
   return (
     <>
       <StatusBar backgroundColor="#550A67" style="light" />
@@ -21,8 +81,7 @@ const Auth = ({ navigation, route }) => {
           <TouchableOpacity
             style={styles.btn}
             onPress={() => {
-              //navigation.navigate("Home");
-              navigation.navigate('MainTab', { screen: 'Home' });
+              promptAsync();
             }}
           >
             <Image style={styles.google} source={google} />

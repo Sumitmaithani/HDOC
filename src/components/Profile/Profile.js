@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Image,
   Text,
@@ -10,6 +10,7 @@ import {
   ScrollView
 } from "react-native";
 import { Shadow } from "react-native-shadow-2";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import settings from "../../../assets/images/Profile/settings.png";
 import edit from "../../../assets/images/Profile/edit.png";
@@ -23,23 +24,52 @@ import avatar from "../../../assets/images/Home/logo.jpg";
 import Statistics from "./Statistics";
 
 const Profile = ({ navigation, route }) => {
+  const [userImg, setUserImg] = useState(null);
+  const [name, setName] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [month, setMonth] = useState(null);
+  const [year, setYear] = useState(null);
+
+  useEffect(() => {
+    const fetchImg = async () => {
+      let userData = await AsyncStorage.getItem("user");
+      let date = await AsyncStorage.getItem("date");
+      let UserImage = JSON.parse(userData);
+      let dateData = JSON.parse(date);
+      console.log(dateData);
+      setUserImg(UserImage.picture);
+      setName(UserImage?.name);
+      setFirstName(UserImage?.given_name);
+      setMonth(dateData?.month);
+      setYear(dateData?.year);
+    };
+    fetchImg();
+  }, []);
+
   return (
-    <ScrollView>
+    <ScrollView style={{ paddingTop: 0 }}>
       <Shadow>
         <View style={styles.header}>
           <Text style={styles.headerText}>Profile</Text>
-          <Image style={styles.headerLogo} source={settings} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Settings")}
+            style={styles.headerLogo}
+          >
+            <Image style={styles.headerLogoImg} source={settings} />
+          </TouchableOpacity>
         </View>
       </Shadow>
       <View style={styles.userDetails}>
         <View style={styles.userContainer}>
           <View style={styles.userInfo}>
-            <Text style={styles.userName}>Sumit Maithani</Text>
-            <Text style={styles.userSubname}>@sumitmaithani</Text>
-            <Text style={styles.userSubname}>Joined October 2022</Text>
+            <Text style={styles.userName}>{name}</Text>
+            <Text style={styles.userSubname}>@{firstName?.toLowerCase()}</Text>
+            <Text style={styles.userSubname}>
+              Joined {month} {year}
+            </Text>
           </View>
           <View style={styles.userAvatar}>
-            <Image style={styles.userAvatarPhoto} source={avatar} />
+            <Image style={styles.userAvatarPhoto} source={{ uri: userImg }} />
             <Image style={styles.userAvatarEdit} source={edit} />
           </View>
         </View>
@@ -103,7 +133,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 35,
+    marginTop: 0,
     alignItems: "center",
     borderBottomWidth: 0.5,
     borderBottomColor: "#808080",
@@ -124,8 +154,15 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
     left: Dimensions.get("window").width - 50,
-    top: 3,
+    top: 8,
     position: "absolute"
+  },
+  headerLogoImg: {
+    width: 42,
+    height: 42
+    // left: Dimensions.get("window").width - 50,
+    // top: 3,
+    // position: "absolute"
   },
   userDetails: {
     paddingHorizontal: 12,

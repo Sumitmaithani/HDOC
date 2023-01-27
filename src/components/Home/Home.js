@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   ScrollView,
@@ -6,15 +6,28 @@ import {
   Text,
   View,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  SafeAreaView
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import logo from "../../../assets/images/Home/logo.jpg";
 
 import Day from "./Day";
 
 const Home = ({ navigation, route }) => {
+  const [userImg, setUserImg] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("#F9851C");
+
+  useEffect(() => {
+    const fetchImg = async () => {
+      let userData = await AsyncStorage.getItem("user");
+      let UserImage = JSON.parse(userData);
+      console.log(UserImage);
+      setUserImg(UserImage?.picture);
+    };
+    fetchImg();
+  }, []);
 
   const changeColor = (event) => {
     const scrollY = event.nativeEvent.contentOffset.y;
@@ -28,7 +41,7 @@ const Home = ({ navigation, route }) => {
     }
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={backgroundColor} style="light" />
       <View
         style={{
@@ -37,7 +50,7 @@ const Home = ({ navigation, route }) => {
         }}
       >
         <Image source={logo} style={styles.logo} />
-        <Image source={logo} style={styles.logo} />
+        <Image source={{ uri: userImg }} style={styles.logo} />
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -49,20 +62,22 @@ const Home = ({ navigation, route }) => {
       >
         <Day navigation={navigation} route={route} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    //paddingTop: 25
+  },
   logoAvatarContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 12,
-    paddingTop: 45,
+    paddingTop: 15,
     paddingBottom: 15
   },
   logo: {
