@@ -11,6 +11,7 @@ import {
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { makeRedirectUri } from "expo-auth-session";
 import { googleClientId, googleAndroidId } from "@env";
 
 import auth from "../../../assets/images/Auth/auth.png";
@@ -21,9 +22,14 @@ WebBrowser.maybeCompleteAuthSession();
 const Auth = ({ navigation, route }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [user, setUser] = useState(null);
-  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
-    clientId: googleClientId,
-    androidClientId: googleAndroidId
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    //clientId: googleClientId,
+    //androidClientId: googleAndroidId,
+    clientId:
+      "699707913730-217h5htjgsouv6go4nut0nl21d53v2jh.apps.googleusercontent.com",
+    androidClientId:
+      "699707913730-5k49g8frkodf86931u0ulate53gkqdbo.apps.googleusercontent.com",
+    //redirectUri: makeRedirectUri() //for production we have to uncomment this
   });
 
   useEffect(() => {
@@ -81,7 +87,7 @@ const Auth = ({ navigation, route }) => {
           <TouchableOpacity
             style={styles.btn}
             onPress={() => {
-              promptAsync();
+              promptAsync({ showInRecents: true });
             }}
           >
             <Image style={styles.google} source={google} />

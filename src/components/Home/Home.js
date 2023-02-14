@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import {
   Image,
   ScrollView,
@@ -7,17 +7,86 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  SafeAreaView
+  SafeAreaView,
+  FlatList,
+  Pressable
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Lottie from "lottie-react-native";
 
 import logo from "../../../assets/images/Home/logo.jpg";
 
-import Day from "./Day";
+import { data } from "../../common/data/data";
 
 const Home = ({ navigation, route }) => {
   const [userImg, setUserImg] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("#F9851C");
+
+  const renderItem = ({ item }) => (
+    <View key={item.id}>
+      <View
+        style={{
+          ...styles.textContainer,
+          backgroundColor: item.backgroundColor
+        }}
+      >
+        <Text style={styles.heading}>{item.unit}</Text>
+        <Text style={styles.subHeading}>{item.topic}</Text>
+      </View>
+      <View style={styles.dayContainer}>
+        {item.data.map((item) => {
+          return (
+            <Pressable
+              key={item.key}
+              style={{
+                ...styles.circleContainer,
+                marginLeft: item.left,
+                marginRight: item.right
+              }}
+            >
+              <Pressable
+                onPress={() => navigation.navigate("Room", { data: item.room })}
+                style={styles.circle1}
+              >
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate("Room", { data: item.room })
+                  }
+                  style={{
+                    ...styles.circle2,
+                    backgroundColor: item.color
+                  }}
+                  android_ripple={{ color: "white", borderless: false }}
+                >
+                  <Image source={item.image} style={styles.face} />
+                </Pressable>
+              </Pressable>
+            </Pressable>
+          );
+        })}
+        <Lottie
+          style={styles.animation}
+          source={item.animation1}
+          autoPlay
+          loop
+        />
+        <Lottie
+          style={styles.animation2}
+          source={item.animation2}
+          autoPlay
+          loop
+        />
+        <Lottie
+          style={styles.animation3}
+          source={item.animation3}
+          autoPlay
+          loop
+        />
+      </View>
+    </View>
+  );
+
+  const memoizedValue = useMemo(() => renderItem, [data]);
 
   useEffect(() => {
     const fetchImg = async () => {
@@ -31,13 +100,27 @@ const Home = ({ navigation, route }) => {
 
   const changeColor = (event) => {
     const scrollY = event.nativeEvent.contentOffset.y;
-    //console.log(scrollY);
+    // console.log(scrollY);
     if (scrollY <= 1423) {
       setBackgroundColor("#F9851C");
-    } else if (scrollY >= 1423) {
+    } else if (scrollY >= 1423 && scrollY <= 2846) {
       setBackgroundColor("#14AF6C");
+    } else if (scrollY >= 2846 && scrollY <= 4269) {
+      setBackgroundColor("#1cb0f6");
+    } else if (scrollY >= 4269 && scrollY <= 5692) {
+      setBackgroundColor("#8549ba");
+    } else if (scrollY >= 5692 && scrollY <= 7115) {
+      setBackgroundColor("#ffc202");
+    } else if (scrollY >= 7115 && scrollY <= 8538) {
+      setBackgroundColor("#ED82DE");
+    } else if (scrollY >= 8538 && scrollY <= 9961) {
+      setBackgroundColor("#B697FF");
+    } else if (scrollY >= 9961 && scrollY <= 11384) {
+      setBackgroundColor("#007cbd");
+    } else if (scrollY >= 11384 && scrollY <= 12807) {
+      setBackgroundColor("#fbb13c");
     } else {
-      setBackgroundColor("#14AF6C");
+      setBackgroundColor("#00954a");
     }
   };
   return (
@@ -52,16 +135,18 @@ const Home = ({ navigation, route }) => {
         <Image source={logo} style={styles.logo} />
         <Image source={{ uri: userImg }} style={styles.logo} />
       </View>
-      <ScrollView
+      <FlatList
+        data={data}
+        renderItem={memoizedValue}
+        keyExtractor={(item) => item.id}
+        initialNumToRender={1}
         showsVerticalScrollIndicator={false}
         onScroll={changeColor}
         bounces={false}
         alwaysBounceHorizontal={false}
         alwaysBounceVertical={false}
         vertical={true}
-      >
-        <Day navigation={navigation} route={route} />
-      </ScrollView>
+      />
     </SafeAreaView>
   );
 };
@@ -69,8 +154,91 @@ const Home = ({ navigation, route }) => {
 export default Home;
 
 const styles = StyleSheet.create({
+  textContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 20,
+    borderTopColor: "#808080",
+    borderTopWidth: 1
+  },
+  heading: {
+    fontFamily: "ConcertOne",
+    fontStyle: "normal",
+    fontSize: 37.5309,
+    color: "#FFFFFF"
+  },
+  subHeading: {
+    fontFamily: "ConcertOne",
+    fontStyle: "normal",
+    fontSize: 17.5309,
+    color: "#FFFFFF",
+    paddingRight: 30,
+    paddingTop: 7
+  },
+  dayContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  circleContainer: {
+    width: 100,
+    height: 100,
+    backgroundColor: "#D9D9D9",
+    borderRadius: 100,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 15,
+    zIndex: 1
+  },
+  circle1: {
+    width: 90,
+    height: 90,
+    backgroundColor: "#ffffff",
+    borderRadius: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    flexDirection: "column",
+    alignContent: "center",
+    zIndex: 1,
+    overflow: "hidden"
+  },
+  circle2: {
+    width: 80,
+    height: 80,
+    borderRadius: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    flexDirection: "column",
+    alignContent: "center",
+    zIndex: 1
+  },
+  face: {
+    width: 65,
+    height: 65,
+    zIndex: 1
+  },
+  animation: {
+    position: "absolute",
+    top: -350,
+    left: 90
+  },
+  animation2: {
+    position: "absolute",
+    top: -10,
+    right: 82
+  },
+  animation3: {
+    position: "absolute",
+    top: 450,
+    left: 90
+  },
+
   container: {
-    //paddingTop: 25
+    paddingBottom: 85
   },
   logoAvatarContainer: {
     display: "flex",

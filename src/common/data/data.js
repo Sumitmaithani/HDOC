@@ -12,6 +12,44 @@ import img10 from "../../../assets/images/Home/face(10).png";
 import animation1 from "../../../assets/animations/animation2.json";
 import animation2 from "../../../assets/animations/animation1.json";
 import animation3 from "../../../assets/animations/animation3.json";
+import animation4 from "../../../assets/animations/animation (1).json";
+import animation5 from "../../../assets/animations/animation (2).json";
+//import animation6 from "../../../assets/animations/animation (3).json";
+//import animation7 from "../../../assets/animations/animation (4).json";
+import animation8 from "../../../assets/animations/animation (5).json";
+import animation9 from "../../../assets/animations/animation (6).json";
+import animation10 from "../../../assets/animations/animation (7).json";
+import animation11 from "../../../assets/animations/animation (8).json";
+import animation12 from "../../../assets/animations/animation (9).json";
+import animation13 from "../../../assets/animations/animation (10).json";
+import animation14 from "../../../assets/animations/animation (11).json";
+import animation15 from "../../../assets/animations/animation (12).json";
+import animation16 from "../../../assets/animations/animation (13).json";
+import animation17 from "../../../assets/animations/animation (14).json";
+import animation18 from "../../../assets/animations/animation (15).json";
+import animation19 from "../../../assets/animations/animation (16).json";
+import animation20 from "../../../assets/animations/animation (17).json";
+import animation21 from "../../../assets/animations/animation (18).json";
+import animation22 from "../../../assets/animations/animation (19).json";
+import animation23 from "../../../assets/animations/animation (20).json";
+import animation24 from "../../../assets/animations/animation (21).json";
+import animation25 from "../../../assets/animations/animation (22).json";
+import animation26 from "../../../assets/animations/animation (23).json";
+import animation27 from "../../../assets/animations/animation (24).json";
+import animation28 from "../../../assets/animations/animation (25).json";
+import animation29 from "../../../assets/animations/animation (26).json";
+import animation30 from "../../../assets/animations/animation (27).json";
+import animation31 from "../../../assets/animations/animation (28).json";
+import animation32 from "../../../assets/animations/animation (29).json";
+import animation33 from "../../../assets/animations/animation (30).json";
+import animation34 from "../../../assets/animations/animation (31).json";
+import animation35 from "../../../assets/animations/animation (32).json";
+import animation36 from "../../../assets/animations/animation (33).json";
+import animation37 from "../../../assets/animations/animation (34).json";
+import animation38 from "../../../assets/animations/animation (35).json";
+import animation39 from "../../../assets/animations/animation (36).json";
+import animation40 from "../../../assets/animations/animation (37).json";
+
 
 export const data = [
   {
@@ -281,6 +319,9 @@ export const data = [
     unit: "Unit 2",
     topic: "Introduction to data structures and algorithms",
     backgroundColor: "#14AF6C",
+     animation1: animation11,
+    animation2: animation19,
+    animation3: animation23,
     data: [
       {
         key: 1,
@@ -353,5 +394,653 @@ export const data = [
         right: 50
       }
     ]
-  }
+  },
+  {
+    id: 3,
+    unit: "Unit 3",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#1cb0f6",
+     animation1: animation4,
+    animation2: animation15,
+    animation3: animation17,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 4,
+    unit: "Unit 4",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#8549ba",
+    animation1: animation16,
+    animation2: animation25,
+    animation3: animation18,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 5,
+    unit: "Unit 5",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#ffc202",
+    animation1: animation21,
+    animation2: animation13,
+    animation3: animation8,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 6,
+    unit: "Unit 6",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#ED82DE",
+    animation1: animation26,
+   animation2: animation40,
+   animation3: animation34,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 7,
+    unit: "Unit 7",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#B697FF",
+    animation1: animation30,
+   animation2: animation29,
+   animation3: animation33,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 8,
+    unit: "Unit 8",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#007cbd",
+    animation1: animation22,
+   animation2: animation36,
+   animation3: animation20,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 9,
+    unit: "Unit 9",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#fbb13c",
+    animation1: animation27,
+   animation2: animation28,
+   animation3: animation32,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
+  {
+    id: 10,
+    unit: "Unit 10",
+    topic: "Introduction to data structures and algorithms",
+    backgroundColor: "#00954a",
+    animation1: animation37,
+   animation2: animation35,
+   animation3: animation39,
+    data: [
+      {
+        key: 1,
+        image: img1,
+        color: "#875DAF",
+        left: 0,
+        right: 0
+      },
+      {
+        key: 2,
+        image: img2,
+        color: "#875DAF",
+        left: 0,
+        right: 100
+      },
+      {
+        key: 3,
+        image: img3,
+        color: "#F98FDB",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 4,
+        image: img4,
+        color: "#14AF6C",
+        left: 0,
+        right: 40
+      },
+      {
+        key: 5,
+        image: img5,
+        color: "#E2DB06",
+        left: 80,
+        right: 0
+      },
+      {
+        key: 6,
+        image: img6,
+        color: "#F98FDB",
+        left: 150,
+        right: 0
+      },
+      {
+        key: 7,
+        image: img7,
+        color: "#875DAF",
+        left: 30,
+        right: 0
+      },
+      {
+        key: 8,
+        image: img8,
+        color: "#F98FDB",
+        left: 0,
+        right: 60
+      },
+      {
+        key: 9,
+        image: img9,
+        color: "#14AF6C",
+        left: 0,
+        right: 160
+      },
+      {
+        key: 10,
+        image: img10,
+        color: "#FD3225",
+        left: 0,
+        right: 50
+      }
+    ]
+  },
 ];

@@ -64,12 +64,16 @@ export default function App() {
       let userData = await AsyncStorage.getItem("user");
       let user = JSON.parse(userData);
       console.log("user data ", user);
-      // if (user != null || user != "") {
+      if (user == null || user == "") {
+        setInitialRouteName("Tour");
+      } else if (user != null) {
+        setInitialRouteName("MainTab");
+      } else {
+        setInitialRouteName("Tour");
+      }
+      // if (user?.length > 0 && user != null && user != "") {
       //   setInitialRouteName("MainTab");
       // }
-      if (user?.length > 0) {
-        setInitialRouteName("MainTab");
-      }
     };
     fetchData();
 
