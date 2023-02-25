@@ -32,7 +32,7 @@ const Question = ({ navigation, route }) => {
         <Text style={styles.name}>Of {name}</Text>
       </View>
       <View style={styles.heyConatiner}></View>
-      <View>
+      <View style={{ paddingBottom: 30 }}>
         {data.map((item) => {
           return (
             <TouchableOpacity

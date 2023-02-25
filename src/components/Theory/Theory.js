@@ -29,7 +29,7 @@ const Theory = ({ navigation, route }) => {
         <Text style={styles.name}>{name}</Text>
       </View>
       <View style={styles.paraContainer}>
-        {data.map((item, index) => {
+        {/* {data.map((item, index) => {
           return (
             <View key={index}>
               {item.type == "text" ? (
@@ -42,6 +42,19 @@ const Theory = ({ navigation, route }) => {
                 <View style={styles.paraSubContainer}>
                   <Text style={styles.paraSubhead}>{item.head}</Text>
                   <Text style={styles.para}>{item.content}</Text>
+                </View>
+              )}
+            </View>
+          );
+        })} */}
+        {data.map((item, index) => {
+          return (
+            <View key={index}>
+              {item.substring(0, 2) == "/h" ? (
+                <Text style={styles.paraSubhead}>{item.replace("/h", "")}</Text>
+              ) : (
+                <View style={styles.paraSubContainer}>
+                  <Text style={styles.para}>{item}</Text>
                 </View>
               )}
             </View>
@@ -77,7 +90,8 @@ const styles = StyleSheet.create({
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 32,
-    color: "#6B45BC"
+    color: "#6B45BC",
+    textAlign: "center"
   },
   paraContainer: {
     paddingTop: 10,

@@ -7,96 +7,17 @@ import {
   StatusBar,
   TouchableOpacity,
   Pressable,
-  FlatList
+  FlatList,
+  ScrollView
 } from "react-native";
 import Lottie from "lottie-react-native";
 
 import { data } from "../../common/data/data";
 
 const Day = ({ navigation, route }) => {
-
-
-  
   return (
-    <>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => (
-          <View key={item.id}>
-            <View
-              style={{
-                ...styles.textContainer,
-                backgroundColor: item.backgroundColor
-              }}
-            >
-              <Text style={styles.heading}>{item.unit}</Text>
-              <Text style={styles.subHeading}>{item.topic}</Text>
-            </View>
-            <View style={styles.dayContainer}>
-              {item.data.map((item) => {
-                return (
-                  <Pressable
-                    key={item.key}
-                    style={{
-                      ...styles.circleContainer,
-                      marginLeft: item.left,
-                      marginRight: item.right
-                    }}
-                  >
-                    <Pressable
-                      onPress={() =>
-                        navigation.navigate("Room", { data: item.room })
-                      }
-                      style={styles.circle1}
-                    >
-                      <Pressable
-                        onPress={() =>
-                          navigation.navigate("Room", { data: item.room })
-                        }
-                        style={{
-                          ...styles.circle2,
-                          backgroundColor: item.color
-                        }}
-                        android_ripple={{ color: "white", borderless: false }}
-                      >
-                        <Image source={item.image} style={styles.face} />
-                      </Pressable>
-                    </Pressable>
-                  </Pressable>
-                );
-              })}
-              <Lottie
-                style={styles.animation}
-                source={item.animation1}
-                autoPlay
-                loop
-              />
-              <Lottie
-                style={styles.animation2}
-                source={item.animation2}
-                autoPlay
-                loop
-              />
-              <Lottie
-                style={styles.animation3}
-                source={item.animation3}
-                autoPlay
-                loop
-              />
-            </View>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-        initialNumToRender={1}
-        showsVerticalScrollIndicator={false}
-        //onScroll={changeColor}
-        bounces={false}
-        alwaysBounceHorizontal={false}
-        alwaysBounceVertical={false}
-        vertical={true}
-      />
-
-      {/* {data.map((item) => {
+    <ScrollView>
+      {data.map((item) => {
         return (
           <View key={item.id}>
             <View
@@ -162,8 +83,8 @@ const Day = ({ navigation, route }) => {
             </View>
           </View>
         );
-      })} */}
-    </>
+      })}
+    </ScrollView>
   );
 };
 

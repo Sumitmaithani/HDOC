@@ -34,7 +34,14 @@ const Art = ({ navigation, route, data }) => {
         <View style={styles.QuestionContainer}>
           <Text style={styles.Question}>{data.title}</Text>
           <View style={styles.QuestionCounterContainer}>
-            <Image style={styles.questionCounterImg} source={data.image} />
+            <Image
+              style={{
+                ...styles.questionCounterImg,
+                width: data.width,
+                height: data.height
+              }}
+              source={data.image}
+            />
           </View>
         </View>
       </View>
@@ -42,12 +49,11 @@ const Art = ({ navigation, route, data }) => {
         {data.article.map((item, index) => {
           return (
             <View key={index}>
-              {item.type == "text" ? (
-                <Text style={styles.paraText}>{item.content}</Text>
+              {item.substring(0, 2) == "/h" ? (
+                <Text style={styles.paraSubhead}>{item.replace("/h", "")}</Text>
               ) : (
                 <View style={styles.paraSubContainer}>
-                  <Text style={styles.paraSubhead}>{item.head}</Text>
-                  <Text style={styles.para}>{item.content}</Text>
+                  <Text style={styles.para}>{item}</Text>
                 </View>
               )}
             </View>
@@ -127,8 +133,8 @@ const styles = StyleSheet.create({
     color: "#808080"
   },
   questionCounterImg: {
-    width: 150,
-    height: 40,
+    // width: 150,
+    // height: 40,
     marginHorizontal: 20,
     marginTop: 40
   },

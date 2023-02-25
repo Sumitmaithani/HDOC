@@ -32,7 +32,6 @@ const Room = ({ navigation, route }) => {
     fetchImg();
   }, []);
 
-  //console.log(data);
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <StatusBar
@@ -44,7 +43,7 @@ const Room = ({ navigation, route }) => {
         <Text style={styles.hey}>Hey, </Text>
         <Text style={styles.name}>{name}</Text>
       </View>
-      <Image style={styles.house} source={house} />
+      <Image style={styles.house} source={data?.unitImg} />
       <View>
         <Text style={styles.day}>{data?.day}</Text>
         <View style={styles.theoryQuesContainer}>

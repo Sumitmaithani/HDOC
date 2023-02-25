@@ -18,71 +18,78 @@ import logo from "../../../assets/images/Home/logo.jpg";
 
 import { data } from "../../common/data/data";
 
+import Day from "./Day";
+
 const Home = ({ navigation, route }) => {
   const [userImg, setUserImg] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("#F9851C");
 
   const renderItem = ({ item }) => (
-    <View key={item.id}>
-      <View
-        style={{
-          ...styles.textContainer,
-          backgroundColor: item.backgroundColor
-        }}
-      >
-        <Text style={styles.heading}>{item.unit}</Text>
-        <Text style={styles.subHeading}>{item.topic}</Text>
-      </View>
-      <View style={styles.dayContainer}>
-        {item.data.map((item) => {
-          return (
-            <Pressable
-              key={item.key}
-              style={{
-                ...styles.circleContainer,
-                marginLeft: item.left,
-                marginRight: item.right
-              }}
-            >
+    <View>
+      <View key={item.id}>
+        <View
+          style={{
+            ...styles.textContainer,
+            backgroundColor: item.backgroundColor
+          }}
+        >
+          <Text style={styles.heading}>{item.unit}</Text>
+          <Text style={styles.subHeading}>{item.topic}</Text>
+        </View>
+        <View style={styles.dayContainer}>
+          {item.data.map((item) => {
+            return (
               <Pressable
+                key={item.key}
+                style={{
+                  ...styles.circleContainer,
+                  marginLeft: item.left,
+                  marginRight: item.right,
+                  zIndex: 10000000
+                }}
                 onPress={() => navigation.navigate("Room", { data: item.room })}
-                style={styles.circle1}
+                android_disableSound={true}
               >
                 <Pressable
                   onPress={() =>
                     navigation.navigate("Room", { data: item.room })
                   }
-                  style={{
-                    ...styles.circle2,
-                    backgroundColor: item.color
-                  }}
-                  android_ripple={{ color: "white", borderless: false }}
+                  style={styles.circle1}
+                  android_disableSound={true}
                 >
-                  <Image source={item.image} style={styles.face} />
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate("Room", { data: item.room })
+                    }
+                    style={{
+                      ...styles.circle2,
+                      backgroundColor: item.color,
+                      zIndex: 10000
+                    }}
+                    android_ripple={{ color: "white", borderless: false }}
+                    android_disableSound={true}
+                  >
+                    <Image source={item.image} style={styles.face} />
+                  </Pressable>
                 </Pressable>
               </Pressable>
-            </Pressable>
-          );
-        })}
-        <Lottie
-          style={styles.animation}
-          source={item.animation1}
-          autoPlay
-          loop
-        />
-        <Lottie
-          style={styles.animation2}
-          source={item.animation2}
-          autoPlay
-          loop
-        />
-        <Lottie
-          style={styles.animation3}
-          source={item.animation3}
-          autoPlay
-          loop
-        />
+            );
+          })}
+        </View>
       </View>
+      <Lottie style={styles.animation} source={item.animation1} autoPlay loop />
+      <Lottie
+        style={styles.animation2}
+        source={item.animation2}
+        autoPlay
+        loop
+      />
+      <Lottie
+        style={styles.animation3}
+        source={item.animation3}
+        autoPlay
+        loop
+      />
     </View>
   );
 
@@ -101,23 +108,23 @@ const Home = ({ navigation, route }) => {
   const changeColor = (event) => {
     const scrollY = event.nativeEvent.contentOffset.y;
     // console.log(scrollY);
-    if (scrollY <= 1423) {
+    if (scrollY <= 1409) {
       setBackgroundColor("#F9851C");
-    } else if (scrollY >= 1423 && scrollY <= 2846) {
+    } else if (scrollY >= 1409 && scrollY <= 2838) {
       setBackgroundColor("#14AF6C");
-    } else if (scrollY >= 2846 && scrollY <= 4269) {
+    } else if (scrollY >= 2838 && scrollY <= 4264) {
       setBackgroundColor("#1cb0f6");
-    } else if (scrollY >= 4269 && scrollY <= 5692) {
+    } else if (scrollY >= 4264 && scrollY <= 5673) {
       setBackgroundColor("#8549ba");
-    } else if (scrollY >= 5692 && scrollY <= 7115) {
+    } else if (scrollY >= 5673 && scrollY <= 7081) {
       setBackgroundColor("#ffc202");
-    } else if (scrollY >= 7115 && scrollY <= 8538) {
+    } else if (scrollY >= 7081 && scrollY <= 8488) {
       setBackgroundColor("#ED82DE");
-    } else if (scrollY >= 8538 && scrollY <= 9961) {
+    } else if (scrollY >= 8488 && scrollY <= 9897) {
       setBackgroundColor("#B697FF");
-    } else if (scrollY >= 9961 && scrollY <= 11384) {
+    } else if (scrollY >= 9897 && scrollY <= 11325) {
       setBackgroundColor("#007cbd");
-    } else if (scrollY >= 11384 && scrollY <= 12807) {
+    } else if (scrollY >= 11325 && scrollY <= 12733) {
       setBackgroundColor("#fbb13c");
     } else {
       setBackgroundColor("#00954a");
@@ -146,6 +153,7 @@ const Home = ({ navigation, route }) => {
         alwaysBounceHorizontal={false}
         alwaysBounceVertical={false}
         vertical={true}
+        maxToRenderPerBatch={1}
       />
     </SafeAreaView>
   );
@@ -171,13 +179,16 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontSize: 17.5309,
     color: "#FFFFFF",
-    paddingRight: 30,
-    paddingTop: 7
+    paddingRight: 20,
+    paddingTop: 7,
+    lineHeight: 22
   },
   dayContainer: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    //marginBottom: 200,
+    zIndex: 1000
   },
   circleContainer: {
     width: 100,
@@ -228,15 +239,14 @@ const styles = StyleSheet.create({
   },
   animation2: {
     position: "absolute",
-    top: -10,
+    top: 100,
     right: 82
   },
   animation3: {
     position: "absolute",
-    top: 450,
+    top: 500,
     left: 90
   },
-
   container: {
     paddingBottom: 85
   },

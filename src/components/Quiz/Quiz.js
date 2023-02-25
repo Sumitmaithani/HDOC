@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import Question from "./Question";
 
 const Quiz = ({ navigation, route }) => {
@@ -45,7 +45,10 @@ const Quiz = ({ navigation, route }) => {
   }, [index]);
 
   return (
-    <View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: "#000000" }}
+    >
       <Question
         navigation={navigation}
         no={no}
@@ -62,7 +65,7 @@ const Quiz = ({ navigation, route }) => {
         onPress={handleNext}
         data={data}
       />
-    </View>
+    </ScrollView>
   );
 };
 
