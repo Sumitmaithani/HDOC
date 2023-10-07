@@ -11,6 +11,8 @@ Download HDOC now and start your Hundred Days of Code journey today!<br>
 visit us : https://hdoc.onrender.com<br>
 Demo full video : https://www.youtube.com/watch?v=SOMtBLFMrt8<br>
 
+![Desktop - 1 (1)](https://github.com/Sumitmaithani/HDOC/assets/86047367/095e88c9-e663-4027-a503-1dcc9dc6ebfd)
+
 https://user-images.githubusercontent.com/86047367/221873897-23c7a0a5-130e-4317-ae7e-8c6239532874.mp4
 
 https://user-images.githubusercontent.com/86047367/221875603-dd82fdff-8760-4b27-becd-b2a262146347.mp4
