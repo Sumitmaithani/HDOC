@@ -7,14 +7,13 @@ import {
   SafeAreaView,
   StyleSheet,
   Dimensions,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { Shadow } from "react-native-shadow-2";
 import { feed } from "../../common/data/feed";
 import Artical from "./Artical";
 
 const Feed = ({ navigation, route }) => {
- 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10
+    marginTop: 10,
   },
   headerText: {
     fontFamily: "ConcertOne",
@@ -51,6 +50,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     lineHeight: 22,
     color: "#808080",
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });

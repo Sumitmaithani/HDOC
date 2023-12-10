@@ -20,19 +20,18 @@ const styles = StyleSheet.create({
   center: {
     justifyContent: "center",
     alignItems: "center",
-    display: "flex"
+    display: "flex",
   },
   container: {
     borderRadius: 50,
     paddingHorizontal: 31,
     paddingVertical: 5,
-    maxWidth: 132
   },
   text: {
     fontFamily: "DMSerifText",
     fontSize: 14,
     lineHeight: 19,
     textAlign: "center",
-    color: "#FFFFFF"
-  }
+    color: "#FFFFFF",
+  },
 });

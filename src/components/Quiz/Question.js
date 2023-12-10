@@ -5,7 +5,8 @@ import {
   View,
   Text,
   StyleSheet,
-  StatusBar
+  StatusBar,
+  SafeAreaView,
 } from "react-native";
 
 import user from "../../../assets/images/Quiz/user1.png";
@@ -27,21 +28,21 @@ const Question = ({
   color,
   score,
   setScore,
-  data
+  data,
 }) => {
   const [slectedOp, setSelectedOp] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState({
     a: null,
     b: null,
     c: null,
-    d: null
+    d: null,
   });
 
   const [backgroundColor2, setBackgroundColor2] = useState({
     a: null,
     b: null,
     c: null,
-    d: null
+    d: null,
   });
 
   const handleOptionPress = (selectedOption) => {
@@ -64,152 +65,158 @@ const Question = ({
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={color} style="dark" barStyle="dark-content" />
-      <View
-        style={{ ...styles.headerQuestionContainer, backgroundColor: color }}
-      >
-        <View style={styles.headerContainer}>
-          <View style={styles.headerLeft}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Room", { data: data })}
-            >
-              <Image style={styles.headerLeftImg} source={back} />
-            </TouchableOpacity>
-            <Text style={styles.headerHead}>QQQ</Text>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor={color}
+          style="dark"
+          barStyle="dark-content"
+        />
+        <View
+          style={{ ...styles.headerQuestionContainer, backgroundColor: color }}
+        >
+          <View style={styles.headerContainer}>
+            <View style={styles.headerLeft}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Room", { data: data })}
+              >
+                <Image style={styles.headerLeftImg} source={back} />
+              </TouchableOpacity>
+              <Text style={styles.headerHead}>QQQ</Text>
+            </View>
+            <View>
+              <Image style={styles.headerRight} source={user} />
+            </View>
           </View>
-          <View>
-            <Image style={styles.headerRight} source={user} />
-          </View>
-        </View>
 
-        <View style={styles.QuestionContainer}>
-          <View style={styles.QuestionCounterContainer}>
-            <Text style={styles.QuestionCounter}>{no}</Text>
-            <Image style={styles.questionCounterImg} source={line} />
-            <Text style={styles.QuestionCounter}>{totalQues}</Text>
+          <View style={styles.QuestionContainer}>
+            <View style={styles.QuestionCounterContainer}>
+              <Text style={styles.QuestionCounter}>{no}</Text>
+              <Image style={styles.questionCounterImg} source={line} />
+              <Text style={styles.QuestionCounter}>{totalQues}</Text>
+            </View>
+            <Text style={styles.Question}>{question}</Text>
           </View>
-          <Text style={styles.Question}>{question}</Text>
+        </View>
+        <View style={styles.optionBtnContainer}>
+          <View>
+            <TouchableOpacity
+              disabled={slectedOp ? true : false}
+              onPress={() => {
+                setSelectedOp("a");
+                handleOptionPress("a");
+              }}
+              style={
+                slectedOp == "a"
+                  ? {
+                      ...styles.selected,
+                      //borderColor: color,
+                      backgroundColor: backgroundColor.a,
+                    }
+                  : {
+                      ...styles.optionContainer,
+                      backgroundColor:
+                        backgroundColor2.a != null
+                          ? backgroundColor2.a
+                          : "#1B1E22",
+                    }
+              }
+            >
+              <Text style={styles.optionText}>{optionA}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={slectedOp ? true : false}
+              onPress={() => {
+                setSelectedOp("b");
+                handleOptionPress("b");
+              }}
+              style={
+                slectedOp == "b"
+                  ? {
+                      ...styles.selected,
+                      //borderColor: color,
+                      backgroundColor: backgroundColor.b,
+                    }
+                  : {
+                      ...styles.optionContainer,
+                      backgroundColor:
+                        backgroundColor2.b != null
+                          ? backgroundColor2.b
+                          : "#1B1E22",
+                    }
+              }
+            >
+              <Text style={styles.optionText}>{optionB}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={slectedOp ? true : false}
+              onPress={() => {
+                setSelectedOp("c");
+                handleOptionPress("c");
+              }}
+              style={
+                slectedOp == "c"
+                  ? {
+                      ...styles.selected,
+                      //borderColor: color,
+                      backgroundColor: backgroundColor.c,
+                    }
+                  : {
+                      ...styles.optionContainer,
+                      backgroundColor:
+                        backgroundColor2.c != null
+                          ? backgroundColor2.c
+                          : "#1B1E22",
+                    }
+              }
+            >
+              <Text style={styles.optionText}>{optionC}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={slectedOp ? true : false}
+              onPress={() => {
+                setSelectedOp("d");
+                handleOptionPress("d");
+              }}
+              style={
+                slectedOp == "d"
+                  ? {
+                      ...styles.selected,
+                      //borderColor: color,
+                      backgroundColor: backgroundColor.d,
+                    }
+                  : {
+                      ...styles.optionContainer,
+                      backgroundColor:
+                        backgroundColor2.d != null
+                          ? backgroundColor2.d
+                          : "#1B1E22",
+                    }
+              }
+            >
+              <Text style={styles.optionText}>{optionD}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.center}>
+            <TouchableOpacity
+              disabled={slectedOp ? false : true}
+              onPress={() => {
+                onPress();
+                setSelectedOp(null);
+                setBackgroundColor({ a: null, b: null, c: null, d: null });
+                setBackgroundColor2({ a: null, b: null, c: null, d: null });
+              }}
+              style={{
+                ...styles.btnContainer,
+                backgroundColor: slectedOp ? color : "grey",
+              }}
+            >
+              <Text style={styles.btnText}>Next</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-      <View style={styles.optionBtnContainer}>
-        <View>
-          <TouchableOpacity
-            disabled={slectedOp ? true : false}
-            onPress={() => {
-              setSelectedOp("a");
-              handleOptionPress("a");
-            }}
-            style={
-              slectedOp == "a"
-                ? {
-                    ...styles.selected,
-                    //borderColor: color,
-                    backgroundColor: backgroundColor.a
-                  }
-                : {
-                    ...styles.optionContainer,
-                    backgroundColor:
-                      backgroundColor2.a != null
-                        ? backgroundColor2.a
-                        : "#1B1E22"
-                  }
-            }
-          >
-            <Text style={styles.optionText}>{optionA}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            disabled={slectedOp ? true : false}
-            onPress={() => {
-              setSelectedOp("b");
-              handleOptionPress("b");
-            }}
-            style={
-              slectedOp == "b"
-                ? {
-                    ...styles.selected,
-                    //borderColor: color,
-                    backgroundColor: backgroundColor.b
-                  }
-                : {
-                    ...styles.optionContainer,
-                    backgroundColor:
-                      backgroundColor2.b != null
-                        ? backgroundColor2.b
-                        : "#1B1E22"
-                  }
-            }
-          >
-            <Text style={styles.optionText}>{optionB}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            disabled={slectedOp ? true : false}
-            onPress={() => {
-              setSelectedOp("c");
-              handleOptionPress("c");
-            }}
-            style={
-              slectedOp == "c"
-                ? {
-                    ...styles.selected,
-                    //borderColor: color,
-                    backgroundColor: backgroundColor.c
-                  }
-                : {
-                    ...styles.optionContainer,
-                    backgroundColor:
-                      backgroundColor2.c != null
-                        ? backgroundColor2.c
-                        : "#1B1E22"
-                  }
-            }
-          >
-            <Text style={styles.optionText}>{optionC}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            disabled={slectedOp ? true : false}
-            onPress={() => {
-              setSelectedOp("d");
-              handleOptionPress("d");
-            }}
-            style={
-              slectedOp == "d"
-                ? {
-                    ...styles.selected,
-                    //borderColor: color,
-                    backgroundColor: backgroundColor.d
-                  }
-                : {
-                    ...styles.optionContainer,
-                    backgroundColor:
-                      backgroundColor2.d != null
-                        ? backgroundColor2.d
-                        : "#1B1E22"
-                  }
-            }
-          >
-            <Text style={styles.optionText}>{optionD}</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.center}>
-          <TouchableOpacity
-            disabled={slectedOp ? false : true}
-            onPress={() => {
-              onPress();
-              setSelectedOp(null);
-              setBackgroundColor({ a: null, b: null, c: null, d: null });
-              setBackgroundColor2({ a: null, b: null, c: null, d: null });
-            }}
-            style={{
-              ...styles.btnContainer,
-              backgroundColor: slectedOp ? color : "grey"
-            }}
-          >
-            <Text style={styles.btnText}>Next</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -218,27 +225,27 @@ export default Question;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#000000",
-    height: "1000%"
+    height: "1000%",
   },
   headerQuestionContainer: {
     paddingHorizontal: 17,
-    paddingTop: 11,
-    width: "100%"
+    paddingTop: 25,
+    width: "100%",
   },
   headerContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   headerLeft: {
     alignItems: "center",
     alignContent: "center",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   headerLeftImg: {
     width: 25,
-    height: 25
+    height: 25,
   },
   headerHead: {
     fontFamily: "ConcertOne",
@@ -246,15 +253,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 19,
     color: "#000000E5",
-    marginLeft: 10
+    marginLeft: 10,
   },
   headerRight: {
     width: 30,
-    height: 30
+    height: 30,
   },
   QuestionContainer: {
     paddingTop: 50,
-    paddingBottom: 37
+    paddingBottom: 37,
   },
   QuestionCounterContainer: {
     display: "flex",
@@ -262,7 +269,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
-    paddingBottom: 28
+    paddingBottom: 28,
   },
   QuestionCounter: {
     fontFamily: "DMSerifText",
@@ -270,12 +277,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 33,
     textAlign: "center",
-    color: "#808080"
+    color: "#808080",
   },
   questionCounterImg: {
     width: 25,
     height: 2,
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   Question: {
     fontFamily: "DMSerifText",
@@ -284,12 +291,12 @@ const styles = StyleSheet.create({
     lineHeight: 33,
     textAlign: "center",
     color: "#000000E5",
-    paddingHorizontal: "5%"
+    paddingHorizontal: "5%",
   },
   optionBtnContainer: {
     backgroundColor: "#030305",
     paddingHorizontal: 17,
-    paddingVertical: 28
+    paddingVertical: 28,
   },
   optionContainer: {
     backgroundColor: "#1B1E22",
@@ -297,7 +304,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     paddingLeft: 28,
     marginVertical: 10,
-    paddingRight: 10
+    paddingRight: 10,
   },
   selected: {
     borderWidth: 3,
@@ -306,14 +313,14 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     paddingLeft: 28,
     marginVertical: 10,
-    paddingRight: 10
+    paddingRight: 10,
   },
   optionText: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 20,
     //lineHeight: 16,
-    color: "#fff"
+    color: "#fff",
   },
   btnContainer: {
     paddingVertical: 8,
@@ -325,7 +332,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     display: "flex",
-    marginTop: 28
+    marginTop: 28,
   },
   btnText: {
     fontFamily: "ConcertOne",
@@ -333,11 +340,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     //lineHeight: 16,
     color: "#ffffff",
-    textAlign: "center"
+    textAlign: "center",
   },
   center: {
     alignItems: "center",
     alignContent: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 });

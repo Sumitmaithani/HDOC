@@ -6,7 +6,7 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  ScrollView
+  ScrollView,
 } from "react-native";
 
 import article from "../../../assets/images/Feed/article1.png";
@@ -22,7 +22,7 @@ const Art = ({ navigation, route, data }) => {
       <View
         style={{
           ...styles.headerQuestionContainer,
-          backgroundColor: data.color
+          backgroundColor: data.color,
         }}
       >
         <View style={styles.headerContainer}>
@@ -38,7 +38,7 @@ const Art = ({ navigation, route, data }) => {
               style={{
                 ...styles.questionCounterImg,
                 width: data.width,
-                height: data.height
+                height: data.height,
               }}
               source={data.image}
             />
@@ -69,27 +69,27 @@ export default Art;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    height: "1000%"
+    height: "1000%",
   },
   headerQuestionContainer: {
     paddingHorizontal: 17,
     paddingTop: 11,
-    width: "100%"
+    width: "100%",
   },
   headerContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   headerLeft: {
     alignItems: "center",
     alignContent: "center",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   headerLeftImg: {
     width: 25,
-    height: 25
+    height: 25,
   },
   headerHead: {
     fontFamily: "ConcertOne",
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     //lineHeight: 19,
     color: "#E2DB06",
-    marginLeft: 10
+    marginLeft: 10,
   },
   headerSubHead: {
     fontFamily: "ConcertOne",
@@ -106,15 +106,15 @@ const styles = StyleSheet.create({
     //lineHeight: 19,
     color: "#ffffff",
     marginLeft: 0,
-    opacity: 0.8
+    opacity: 0.8,
   },
   headerRight: {
     width: 30,
-    height: 30
+    height: 30,
   },
   QuestionContainer: {
     paddingTop: 80,
-    paddingBottom: 27
+    paddingBottom: 27,
   },
   QuestionCounterContainer: {
     display: "flex",
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     justifyContent: "center",
-    paddingBottom: 28
+    paddingBottom: 28,
   },
   QuestionCounter: {
     fontFamily: "DMSerifText",
@@ -130,13 +130,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 33,
     textAlign: "center",
-    color: "#808080"
+    color: "#808080",
   },
   questionCounterImg: {
     // width: 150,
     // height: 40,
     marginHorizontal: 20,
-    marginTop: 40
+    marginTop: 40,
   },
   Question: {
     fontFamily: "DMSerifText",
@@ -145,11 +145,11 @@ const styles = StyleSheet.create({
     //lineHeight: 33,
     textAlign: "center",
     color: "#ffffff",
-    paddingHorizontal: "5%"
+    paddingHorizontal: "5%",
   },
   paraContainer: {
     paddingHorizontal: 15,
-    paddingVertical: 20
+    paddingVertical: 20,
   },
   paraText: {
     fontFamily: "RobotoRegular",
@@ -157,21 +157,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     color: "#3c3c3c",
-    marginBottom: 20
+    marginBottom: 20,
     // marginLeft: 3,
     // opacity: 0.8
   },
   paraSubContainer: {
     // paddingLeft: 15,
     // paddingRight: 10,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   paraSubhead: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 18,
     //lineHeight: 24,
-    color: "#3c3c3c"
+    color: "#3c3c3c",
   },
   para: {
     paddingLeft: 0,
@@ -179,6 +179,6 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontSize: 16,
     lineHeight: 24,
-    color: "#3c3c3c"
-  }
+    color: "#3c3c3c",
+  },
 });

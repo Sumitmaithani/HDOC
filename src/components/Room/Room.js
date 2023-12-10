@@ -7,7 +7,8 @@ import {
   Dimensions,
   ScrollView,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -33,56 +34,58 @@ const Room = ({ navigation, route }) => {
   }, []);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <StatusBar
-        backgroundColor={"#fff"}
-        style="dark"
-        barStyle="dark-content"
-      />
-      <View style={styles.heyConatiner}>
-        <Text style={styles.hey}>Hey, </Text>
-        <Text style={styles.name}>{name}</Text>
-      </View>
-      <Image style={styles.house} source={data?.unitImg} />
-      <View>
-        <Text style={styles.day}>{data?.day}</Text>
-        <View style={styles.theoryQuesContainer}>
+    <SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <StatusBar
+          backgroundColor={"#fff"}
+          style="dark"
+          barStyle="dark-content"
+        />
+        <View style={styles.heyConatiner}>
+          <Text style={styles.hey}>Hey, </Text>
+          <Text style={styles.name}>{name}</Text>
+        </View>
+        <Image style={styles.house} source={data?.unitImg} />
+        <View>
+          <Text style={styles.day}>{data?.day}</Text>
+          <View style={styles.theoryQuesContainer}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Theory", {
+                  data: data.theory,
+                  name: data.name,
+                })
+              }
+              style={styles.theoryContainer}
+            >
+              <Image style={styles.theoryImg} source={theory} />
+              <Text style={styles.theory}>Theory</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Question", {
+                  data: data.question,
+                  name: data.name,
+                })
+              }
+              style={styles.questionContainer}
+            >
+              <Image style={styles.questionImg} source={question} />
+              <Text style={styles.question}>Questions</Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("Theory", {
-                data: data.theory,
-                name: data.name
-              })
-            }
-            style={styles.theoryContainer}
+            onPress={() => {
+              navigation.navigate("Quiz", { data: data });
+            }}
+            style={styles.quizContainer}
           >
-            <Image style={styles.theoryImg} source={theory} />
-            <Text style={styles.theory}>Theory</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("Question", {
-                data: data.question,
-                name: data.name
-              })
-            }
-            style={styles.questionContainer}
-          >
-            <Image style={styles.questionImg} source={question} />
-            <Text style={styles.question}>Questions</Text>
+            <Text style={styles.quiz}>Quiz</Text>
+            <Image style={styles.quizImg} source={quiz} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Quiz", { data: data });
-          }}
-          style={styles.quizContainer}
-        >
-          <Text style={styles.quiz}>Quiz</Text>
-          <Image style={styles.quizImg} source={quiz} />
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -91,23 +94,23 @@ export default Room;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 17,
-    paddingTop: 15
+    paddingTop: 25,
   },
   heyConatiner: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   hey: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 32,
-    color: "#000000D4"
+    color: "#000000D4",
   },
   name: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 32,
-    color: "#6B45BC"
+    color: "#6B45BC",
   },
   house: {
     borderRadius: 20,
@@ -119,63 +122,63 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignContent: "center",
     marginTop: 12,
-    marginBottom: 27
+    marginBottom: 27,
   },
   day: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 24,
     color: "#000000D4",
-    marginBottom: 12
+    marginBottom: 12,
   },
   theoryQuesContainer: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: 12
+    marginBottom: 12,
   },
   theoryContainer: {
     backgroundColor: "#875DAF",
     borderRadius: 20,
-    width: 152,
+    flex: 1,
     height: 142,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
     alignContent: "center",
-    marginRight: 10
+    marginRight: 10,
   },
   theoryImg: {
     width: 90,
-    height: 90
+    height: 90,
   },
   theory: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 24,
     color: "#FFFFFF",
-    marginTop: 6
+    marginTop: 6,
   },
   questionContainer: {
     backgroundColor: "#F98FDB",
     borderRadius: 20,
-    width: 152,
+    flex: 1,
     height: 142,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
     alignContent: "center",
-    marginLeft: 10
+    marginLeft: 10,
   },
   questionImg: {
     width: 90,
-    height: 90
+    height: 90,
   },
   question: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 24,
     color: "#FFFFFF",
-    marginTop: 6
+    marginTop: 6,
   },
   quizContainer: {
     backgroundColor: "#FF9518",
@@ -186,17 +189,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     alignContent: "center",
-    paddingHorizontal: 45
+    paddingHorizontal: 45,
   },
   quizImg: {
     width: 90,
-    height: 90
+    height: 90,
   },
   quiz: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 36,
     lineHeight: 28,
-    color: "#FFFFFF"
-  }
+    color: "#FFFFFF",
+  },
 });

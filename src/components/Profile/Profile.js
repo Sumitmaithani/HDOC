@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Dimensions,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { Shadow } from "react-native-shadow-2";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -47,7 +47,7 @@ const Profile = ({ navigation, route }) => {
   }, []);
 
   return (
-    <ScrollView style={{ paddingTop: 0 }}>
+    <ScrollView>
       <Shadow>
         <View style={styles.header}>
           <Text style={styles.headerText}>Profile</Text>
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#808080",
     paddingBottom: 21,
     width: Dimensions.get("window").width,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
   },
   headerText: {
     fontFamily: "ConcertOne",
@@ -148,18 +148,18 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     color: "#808080",
     textAlign: "center",
-    marginTop: 15
+    marginTop: 15,
   },
   headerLogo: {
     width: 42,
     height: 42,
     left: Dimensions.get("window").width - 50,
     top: 8,
-    position: "absolute"
+    position: "absolute",
   },
   headerLogoImg: {
     width: 42,
-    height: 42
+    height: 42,
     // left: Dimensions.get("window").width - 50,
     // top: 3,
     // position: "absolute"
@@ -168,13 +168,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: "#808080",
-    paddingBottom: 29
+    paddingBottom: 29,
   },
   userContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingTop: 20
+    paddingTop: 20,
   },
   userInfo: {},
   userName: {
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 19,
     color: "#000000",
-    paddingVertical: 5
+    paddingVertical: 5,
   },
   userSubname: {
     fontFamily: "ConcertOne",
@@ -191,31 +191,31 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 17.5,
     color: "#808080",
-    paddingVertical: 5
+    paddingVertical: 5,
   },
   userAvatar: {},
   userAvatarPhoto: {
     width: 90,
     height: 90,
-    borderRadius: 100
+    borderRadius: 100,
   },
   userAvatarEdit: {
     width: 30,
     height: 30,
     position: "absolute",
-    right: 0
+    right: 0,
   },
   userFollower: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: 20
+    marginBottom: 20,
   },
   userFollowerText: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 16,
     color: "#3474E8",
-    marginTop: 20
+    marginTop: 20,
   },
   button: {
     display: "flex",
@@ -227,45 +227,45 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: "#C0C0C0"
+    borderColor: "#C0C0C0",
   },
   buttonText: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 20,
     lineHeight: 16,
-    color: "#3474E8"
+    color: "#3474E8",
   },
   buttonLogo: {
     width: 30,
     height: 30,
-    marginRight: 8
+    marginRight: 8,
   },
   statisticsContainer: {
     paddingHorizontal: 12,
     paddingTop: 21,
-    paddingBottom: 16
+    paddingBottom: 16,
   },
   heading: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 24,
     lineHeight: 19,
-    color: "#000000D4"
+    color: "#000000D4",
   },
   grid: {
     alignItems: "center",
     justifyContent: "space-evenly",
-    paddingTop: 5
+    paddingTop: 5,
   },
   grid12: {
     display: "flex",
     flexDirection: "row",
-    marginVertical: 15
+    marginVertical: 15,
   },
   grid34: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   heading1: {
     fontFamily: "ConcertOne",
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 19,
     color: "#000000D4",
-    marginTop: 20
+    marginTop: 20,
   },
   heading2: {
     fontFamily: "ConcertOne",
@@ -282,6 +282,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: "#808080",
     textAlign: "center",
-    marginTop: 40
-  }
+    marginTop: 40,
+  },
 });

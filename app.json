@@ -3,7 +3,7 @@
     "name": "HDOC",
     "slug": "HDOC",
     "scheme": "com.hdoc.hdoc",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,18 +15,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "plugins": [
-      "@react-native-google-signin/google-signin"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["@react-native-google-signin/google-signin"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hdoc.hdoc",
+      "googleServicesFile": "./google-services.json"
     },
     "android": {
       "package": "com.hdoc.hdoc",
-      "versionCode": 1,
+      "versionCode": 5,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",

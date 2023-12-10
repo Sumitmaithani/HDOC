@@ -1,14 +1,23 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 
-const Artical = ({ navigation, route, image, title,onPress }) => {
+const Artical = ({ navigation, route, image, title, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Image source={image} style={styles.img} />
-      <View style={styles.headerContainer}>
-        <Text style={styles.header}>{title}</Text>
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity onPress={onPress} style={styles.container}>
+        <Image source={image} style={styles.img} />
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -24,23 +33,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     textAlign: "center",
-    marginVertical: 14
+    marginVertical: 10,
+    overflow: "hidden",
   },
   img: {
-    width: 338,
+    width: Dimensions.get("window").width,
     height: 145,
     borderTopRightRadius: 20,
-    borderTopLeftRadius: 20
+    borderTopLeftRadius: 20,
   },
   headerContainer: {
     marginVertical: 18,
-    paddingHorizontal: 9
+    paddingHorizontal: 9,
   },
   header: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 20,
     lineHeight: 20,
-    color: "#000000CC"
-  }
+    color: "#000000CC",
+  },
 });

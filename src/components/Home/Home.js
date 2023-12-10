@@ -9,7 +9,7 @@ import {
   Dimensions,
   SafeAreaView,
   FlatList,
-  Pressable
+  Pressable,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Lottie from "lottie-react-native";
@@ -30,7 +30,7 @@ const Home = ({ navigation, route }) => {
         <View
           style={{
             ...styles.textContainer,
-            backgroundColor: item.backgroundColor
+            backgroundColor: item.backgroundColor,
           }}
         >
           <Text style={styles.heading}>{item.unit}</Text>
@@ -45,7 +45,7 @@ const Home = ({ navigation, route }) => {
                   ...styles.circleContainer,
                   marginLeft: item.left,
                   marginRight: item.right,
-                  zIndex: 10000000
+                  zIndex: 10000000,
                 }}
                 onPress={() => navigation.navigate("Room", { data: item.room })}
                 android_disableSound={true}
@@ -64,7 +64,7 @@ const Home = ({ navigation, route }) => {
                     style={{
                       ...styles.circle2,
                       backgroundColor: item.color,
-                      zIndex: 10000
+                      zIndex: 10000,
                     }}
                     android_ripple={{ color: "white", borderless: false }}
                     android_disableSound={true}
@@ -136,7 +136,7 @@ const Home = ({ navigation, route }) => {
       <View
         style={{
           ...styles.logoAvatarContainer,
-          backgroundColor: backgroundColor
+          backgroundColor: backgroundColor,
         }}
       >
         <Image source={logo} style={styles.logo} />
@@ -166,13 +166,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 20,
     borderTopColor: "#808080",
-    borderTopWidth: 1
+    borderTopWidth: 1,
   },
   heading: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 37.5309,
-    color: "#FFFFFF"
+    color: "#FFFFFF",
   },
   subHeading: {
     fontFamily: "ConcertOne",
@@ -181,14 +181,14 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     paddingRight: 20,
     paddingTop: 7,
-    lineHeight: 22
+    lineHeight: 22,
   },
   dayContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     //marginBottom: 200,
-    zIndex: 1000
+    zIndex: 1000,
   },
   circleContainer: {
     width: 100,
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 15,
-    zIndex: 1
+    zIndex: 1,
   },
   circle1: {
     width: 90,
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignContent: "center",
     zIndex: 1,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   circle2: {
     width: 80,
@@ -225,30 +225,30 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "column",
     alignContent: "center",
-    zIndex: 1
+    zIndex: 1,
   },
   face: {
     width: 65,
     height: 65,
-    zIndex: 1
+    zIndex: 1,
   },
   animation: {
     position: "absolute",
     top: -350,
-    left: 90
+    left: 90,
   },
   animation2: {
     position: "absolute",
     top: 100,
-    right: 82
+    right: 82,
   },
   animation3: {
     position: "absolute",
     top: 500,
-    left: 90
+    left: 90,
   },
   container: {
-    paddingBottom: 85
+    paddingBottom: 85,
   },
   logoAvatarContainer: {
     display: "flex",
@@ -256,11 +256,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 12,
     paddingTop: 15,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   logo: {
     width: 55,
     height: 55,
-    borderRadius: 100
-  }
+    borderRadius: 100,
+  },
 });

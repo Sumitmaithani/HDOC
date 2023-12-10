@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Dimensions,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { Shadow } from "react-native-shadow-2";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -27,11 +27,11 @@ const Settings = ({ navigation, route }) => {
     console.log("Done");
     navigation.reset({
       index: 0,
-      routes: [{ name: "Tour" }]
+      routes: [{ name: "Tour" }],
     });
   };
   return (
-    <View>
+    <View style={{ paddingTop: 0 }}>
       <Shadow>
         <View style={styles.header}>
           <Text style={styles.headerText}>Settings</Text>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#808080",
     paddingBottom: 12,
     width: Dimensions.get("window").width,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
   },
   headerText: {
     fontFamily: "ConcertOne",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     //lineHeight: 22,
     color: "#808080",
     textAlign: "center",
-    marginTop: 15
+    marginTop: 15,
   },
 
   button: {
@@ -83,17 +83,17 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#C0C0C0",
     marginVertical: 20,
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   buttonText: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 20,
-    color: "red"
+    color: "red",
   },
   buttonLogo: {
     width: 30,
     height: 30,
-    marginRight: 8
-  }
+    marginRight: 8,
+  },
 });

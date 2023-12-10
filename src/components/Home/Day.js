@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Pressable,
   FlatList,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import Lottie from "lottie-react-native";
 
@@ -23,7 +23,7 @@ const Day = ({ navigation, route }) => {
             <View
               style={{
                 ...styles.textContainer,
-                backgroundColor: item.backgroundColor
+                backgroundColor: item.backgroundColor,
               }}
             >
               <Text style={styles.heading}>{item.unit}</Text>
@@ -37,7 +37,7 @@ const Day = ({ navigation, route }) => {
                     style={{
                       ...styles.circleContainer,
                       marginLeft: item.left,
-                      marginRight: item.right
+                      marginRight: item.right,
                     }}
                   >
                     <Pressable
@@ -52,7 +52,7 @@ const Day = ({ navigation, route }) => {
                         }
                         style={{
                           ...styles.circle2,
-                          backgroundColor: item.color
+                          backgroundColor: item.color,
                         }}
                         android_ripple={{ color: "white", borderless: false }}
                       >
@@ -95,13 +95,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 20,
     borderTopColor: "#808080",
-    borderTopWidth: 1
+    borderTopWidth: 1,
   },
   heading: {
     fontFamily: "ConcertOne",
     fontStyle: "normal",
     fontSize: 37.5309,
-    color: "#FFFFFF"
+    color: "#FFFFFF",
   },
   subHeading: {
     fontFamily: "ConcertOne",
@@ -109,12 +109,12 @@ const styles = StyleSheet.create({
     fontSize: 17.5309,
     color: "#FFFFFF",
     paddingRight: 30,
-    paddingTop: 7
+    paddingTop: 7,
   },
   dayContainer: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   circleContainer: {
     width: 100,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 15,
-    zIndex: 1
+    zIndex: 1,
   },
   circle1: {
     width: 90,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignContent: "center",
     zIndex: 1,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   circle2: {
     width: 80,
@@ -151,26 +151,26 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "column",
     alignContent: "center",
-    zIndex: 1
+    zIndex: 1,
   },
   face: {
     width: 65,
     height: 65,
-    zIndex: 1
+    zIndex: 1,
   },
   animation: {
     position: "absolute",
     top: -350,
-    left: 90
+    left: 90,
   },
   animation2: {
     position: "absolute",
     top: -10,
-    right: 82
+    right: 82,
   },
   animation3: {
     position: "absolute",
     top: 450,
-    left: 90
-  }
+    left: 90,
+  },
 });

@@ -5,7 +5,7 @@ import {
   View,
   StyleSheet,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 
 import * as WebBrowser from "expo-web-browser";
@@ -29,7 +29,7 @@ const Auth = ({ navigation, route }) => {
       "699707913730-217h5htjgsouv6go4nut0nl21d53v2jh.apps.googleusercontent.com",
     androidClientId:
       "699707913730-5k49g8frkodf86931u0ulate53gkqdbo.apps.googleusercontent.com",
-    //redirectUri: makeRedirectUri() //for production we have to uncomment this
+    redirectUri: makeRedirectUri(), //for production we have to uncomment this
   });
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Auth = ({ navigation, route }) => {
 
   async function fetchUserInfo() {
     let response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
-      headers: { Authorization: `Bearer ${accessToken}` }
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     const useInfo = await response.json();
 
@@ -57,7 +57,7 @@ const Auth = ({ navigation, route }) => {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
 
     var month = new Date().getMonth();
@@ -65,7 +65,7 @@ const Auth = ({ navigation, route }) => {
 
     const dateData = {
       month: monthNames[month],
-      year: year
+      year: year,
     };
 
     AsyncStorage.setItem("user", JSON.stringify(useInfo));
@@ -74,7 +74,7 @@ const Auth = ({ navigation, route }) => {
     console.log(useInfo);
     navigation.reset({
       index: 0,
-      routes: [{ name: "MainTab" }]
+      routes: [{ name: "MainTab" }],
     });
   }
 
@@ -87,6 +87,7 @@ const Auth = ({ navigation, route }) => {
           <TouchableOpacity
             style={styles.btn}
             onPress={() => {
+              //navigation.navigate("MainTab");
               promptAsync({ showInRecents: true });
             }}
           >
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#550A67",
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   text: {
     fontFamily: "DMSerifText",
@@ -117,12 +118,12 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     paddingHorizontal: 54,
     paddingVertical: 40,
-    paddingTop: 55
+    paddingTop: 55,
   },
   btnContainer: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   btn: {
     display: "flex",
@@ -133,12 +134,12 @@ const styles = StyleSheet.create({
     borderRadius: 9,
     width: 285,
     paddingVertical: 6,
-    paddingHorizontal: 6
+    paddingHorizontal: 6,
   },
   google: {
     width: 45,
     height: 45,
-    borderRadius: 9
+    borderRadius: 9,
   },
   btnText: {
     fontFamily: "ConcertOne",
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   img: {
     width: "120%",
@@ -157,6 +158,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     overflow: "hidden",
     marginTop: 8,
-    marginLeft: 30
-  }
+    marginLeft: 30,
+  },
 });
